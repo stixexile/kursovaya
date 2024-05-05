@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lugrasimo&family=Seymour+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>kursa4</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <header>
+    <div class="left-buttons">
+      <h2 style="font-size: 15px; user-select: none">ALL GENDERS</h2>
+    </div>
+    <h class="non-selectable">
+      <a href="home-page.html" style="text-decoration: none; color: inherit"
+        >Anton Lebedev</a
+      >
+    </h>
+    <div class="right-buttons">
+      <button class="image-button">
+        <a href="favourites.html">
+          <img src="images/icons8-heart-50.png" alt="whishlist" />
+        </a>
+      </button>
+      <button class="image-button">
+        <a href="bag-page.html">
+          <img src="images/icons8-bag-50.png" alt="bag" />
+        </a>
+      </button>
+    </div>
+  </header>
+  <body>
+    <hbags>
+      <hbagsh1>shopping cart</hbagsh1>
+    </hbags>
+    <main-bags>
+      <div id="cartContainer"></div>
+      <div id="orderForm" style="display: none">
+        <p>TOTAL: $ <span id="totalPrice">0</span></p>
+        <div class="form-container">
+          <input
+            style="font-size: 20px; text-align: center"
+            type="text"
+            id="phone"
+            placeholder="your phone number"
+            oninput="formatPhoneNumber(this),validatePhoneNumber()"
+          />
+          <button
+            id="checkoutButton"
+            style="margin-top: 1%"
+            onclick="sendOrder()"
+          >
+            CHECKOUT
+          </button>
+        </div>
+      </div>
+      <p id="emptyCartMessage" style="display: none">Корзина пуста.</p>
+    </main-bags>
+    <div
+      id="popup"
+      style="
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 35%;
+        transform: translateX(-50%);
+        padding: 20px;
+        background-color: rgb(228, 224, 224);
+        border: 1px solid #ddd0dd57;
+        z-index: 1000;
+      "
+    >
+      <h1
+        style="
+          margin-bottom: 5%;
+          font-size: 20px;
+          font-family: Roboto, sans-serif;
+        "
+      >
+        Заказ успешно отправлен!
+      </h1>
+      <button onclick="closePopup()">ОК</button>
+    </div>
+    <script>
+      function formatPhoneNumber(input) {
+        let value = input.value.replace(/\D/g, "");
+        if (value.startsWith("8")) {
+          value = "7" + value.substring(1);
+        }
+        value = value.substring(0, 11);
+
+        let formatted = "";
+        if (value.startsWith("7")) {
+          formatted = "+7 ";
+        }
+
+        let newDigits = value.substring(1);
+        if (newDigits.length > 0) {
+          formatted += "(";
+        }
+        for (let i = 0; i < newDigits.length; i++) {
+          if (i === 3) {
+            formatted += ") ";
+          } else if (i === 6 || i === 8) {
+            formatted += "-";
+          }
+          formatted += newDigits[i];
+        }
+
+        input.value = formatted;
+        validatePhoneNumber();
+      }
+
+      function validatePhoneNumber() {
+        const input = document.getElementById("phone");
+        const button = document.getElementById("checkoutButton");
+        const pattern = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+        const isValid = pattern.test(input.value);
+        button.disabled = !isValid;
+
+        if (isValid) {
+          button.classList.add("button-valid"); // Добавляем класс, если номер правильный
+        } else {
+          button.classList.remove("button-valid"); // Удаляем класс, если номер неправильный
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        validatePhoneNumber();
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartContainer = document.getElementById("cartContainer");
+        const orderForm = document.getElementById("orderForm");
+        const emptyCartMessage = document.getElementById("emptyCartMessage");
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        let total = 0;
+
+        if (favorites.length === 0) {
+          emptyCartMessage.style.display = "block";
+          orderForm.style.display = "none";
+        } else {
+          favorites.forEach((product, index) => {
+            const productElement = document.createElement("div");
+            productElement.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" style="width: 200px; height: auto; border-radius:10px;">
+        <p>${product.name}</p>
+        <p>${product.price}</p>
+      `;
+            cartContainer.appendChild(productElement);
+            total += parseFloat(product.price.replace(/[^0-9.-]+/g, ""));
+          });
+
+          document.getElementById("totalPrice").textContent = total.toFixed(2);
+          orderForm.style.display = "block";
+        }
+      });
+
+      function sendOrder() {
+        const phone = document.getElementById("phone").value;
+        const totalPrice = document.getElementById("totalPrice").textContent;
+        let message = `Новый заказ! \nТелефон: ${phone} \nИтого: $${totalPrice}\nТовары:\n`;
+
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const mediaItems = [];
+
+        favorites.forEach((product, index) => {
+          message += `${index + 1}. ${product.name} - ${product.price}\n`;
+
+          if (product.image) {
+            mediaItems.push({
+              type: "photo",
+              media: product.image,
+              caption: `${product.name} - ${product.price}`,
+            });
+          }
+        });
+
+        fetch(
+          "https://api.telegram.org/bot6762852167:AAF5fQv7W69upXOnDFpeAbXUyAVagfZ4OLE/sendMediaGroup",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              chat_id: "-4193580374",
+              media: mediaItems,
+            }),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            // Отправляем текстовое сообщение с заказом
+            fetch(
+              "https://api.telegram.org/bot6762852167:AAF5fQv7W69upXOnDFpeAbXUyAVagfZ4OLE/sendMessage",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  chat_id: "-4193580374",
+                  text: message,
+                }),
+              }
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                showPopup(); // Показываем всплывающее окно после успешной отправки
+              })
+              .catch((error) => {
+                console.error("Ошибка:", error);
+              });
+          })
+          .catch((error) => {
+            console.error("Ошибка при отправке медиагруппы:", error);
+          });
+      }
+
+      function showPopup() {
+        document.getElementById("popup").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

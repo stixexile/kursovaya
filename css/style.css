@@ -1,12 +1,19 @@
+html,
 body {
+  overflow-x: hidden; /*для горизонтального*/
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   font-family: "Cinzel", serif;
-  font-size: 10px;
+  font-size: calc(12px + 8 * (100vw - 320px) / 880);
   font-style: normal;
   font-weight: 600;
   font-display: swap;
   text-align: center;
+  background-color: rgb(255, 255, 255);
+  font-family: Roboto, sans-serif;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -22,7 +29,7 @@ header {
   font-weight: 600;
   font-display: swap;
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   border-radius: 20px; /* Закругление углов */
   margin: 20px; /* Отступы сверху, справа и слева */
   max-width: calc(100% - 40px); /* Ширина с учетом отступов */
@@ -42,6 +49,7 @@ button {
   text-decoration: none;
   margin: 0 5px;
   border: none;
+  text-align: center;
   box-shadow: none; /* Убирает тень */
   font-family: "Roboto", sans-serif;
   font-size: 15px; /* Размер шрифта */
@@ -62,11 +70,17 @@ button:hover {
   box-shadow: none; /* Убирает тени */
 }
 
-h1 {
-  flex-grow: 1;
-  text-align: center;
-  margin: 0; /* Убираем стандартные отступы, чтобы заголовок лучше центрировался */
-  padding-left: 7.5%;
+h {
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translate(-50%);
+}
+h2 {
+  position: absolute;
+  left: 4%; /* Центрирование по горизонтали */
+  transform: translate(-30%, -100%);
 }
 .image-button img {
   width: 25px; /* Укажите нужную ширину */
@@ -88,10 +102,17 @@ h1 {
 }
 
 .slider {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-height: 50%;
+  position: relative;
   user-select: none;
   border-radius: 20px; /* Закругление углов */
   position: relative;
   overflow: hidden;
+  max-width: 50%;
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translate(-50%);
+  margin-bottom: 5%;
 }
 
 .slides {
@@ -149,11 +170,11 @@ nav {
 }
 
 main {
+  flex: 1;
   user-select: none;
   display: block;
-  margin: 45% auto; /* Верхний отступ равен высоте <header> */
-  width: 90%;
-  height: 10px;
+  margin: 8% auto; /* Верхний отступ равен высоте <header> */
+  width: 100%;
   text-align: center;
   justify-content: flex-end; /* Убедитесь, что контент выравнивается по нижнему краю */
 }
@@ -184,7 +205,7 @@ main {
   text-decoration: none;
   background-color: #ffffff;
   position: absolute;
-  bottom: -5%; /* Расположение кнопки под картинкой */
+  bottom: -7%; /* Расположение кнопки под картинкой */
   left: 50%;
   transform: translateX(-50%); /* Центрирование кнопки */
   padding: 10px 20px;
@@ -199,7 +220,7 @@ main {
 }
 .horizontal-line {
   position: absolute; /* Фиксированное позиционирование относительно вьюпорта */
-  top: 160%; /* Расположение по вертикали по центру */
+  margin-top: 3%; /* Расположение по вертикали по центру */
   left: 0;
   right: 0;
   width: 100%; /* Ширина линии равна ширине экрана */
@@ -209,6 +230,7 @@ main {
   transition: opacity 0.5s ease; /* Анимация изменения прозрачности */
 }
 .image-with-text {
+  flex: 1;
   text-decoration: none;
   margin-left: 1.7%;
   margin-top: 6.5%;
@@ -256,84 +278,64 @@ main {
 }
 .horizontal-line2 {
   position: absolute; /* Фиксированное позиционирование относительно вьюпорта */
-  top: 292%; /* Расположение по вертикали по центру */
+  margin-top: 3%;
   left: 0;
   right: 0;
-  width: 100%; /* Ширина линии равна ширине экрана */
   height: 2px; /* Высота линии */
   background-color: #d1d5d6ec; /* Цвет линии, можно сделать прозрачным, если нужно */
   opacity: 1; /* Начальная прозрачность, делает линию невидимой */
   transition: opacity 0.5s ease; /* Анимация изменения прозрачности */
 }
 .center-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 26.5%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 70%;
-  width: 70%;
+  margin-top: 7%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Адаптивная ширина контейнера */
+  aspect-ratio: 16 / 9; /* Соотношение сторон */
+  max-width: 1200px; /* Максимальная ширина */
+  min-width: 300px; /* Минимальная ширина */
 }
 
-/* Адаптация для маленьких экранов */
 @media (max-width: 600px) {
   .center-container {
-    margin-top: 10%;
-    height: 90%;
+    top: 10%;
     width: 90%;
   }
 }
 
 .content-container {
-  border-radius: 20px; /* Закругление углов */
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: stretch; /* Заставляет дочерние элементы растягиваться на всю высоту */
-  padding: 20px;
-  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Обрезает контент вне рамок */
+  width: 100%; /* Принимает ширину родителя */
+  height: 100%; /* Принимает высоту родителя */
 }
 
 .side-image {
-  border-radius: 20px 0 0 20px; /* Закругление углов */
-  width: 50%; /* Примерная ширина картинки */
-  height: auto; /* Высота автоматически подстраивается */
-  object-fit: cover; /* Обеспечивает покрытие всей доступной области без потери пропорций */
+  width: 50%; /* Занимает половину контейнера */
+  height: 100%; /* Полная высота контейнера */
+  object-fit: cover; /* Сохранение пропорций изображения */
 }
 
 .text-and-button {
-  text-decoration: none;
-  border-radius: 0 20px 20px 0;
-  border-width: 0;
-  background-color: #ddd0dd57; /* Фон только для текста и кнопки */
-  padding: 20px; /* Добавляем отступы внутри блока с текстом и кнопкой */
-  flex-grow: 1; /* Заставляет блок занимать все доступное пространство */
+  flex: 1; /* Занимает оставшееся пространство */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Центрирование содержимого по вертикали */
+  justify-content: center;
+  background-color: #ddd0dd57;
+  padding: 20px;
 }
 
-.text-and-button p {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px; /* Размер шрифта */
-  font-weight: bold; /* Жирность шрифта */
-  color: rgb(0, 0, 0); /* Цвет текста */
-  margin: 0 0 10px 0; /* Отступы вокруг параграфа */
-}
+.text-and-button p,
 .text-and-button p1 {
-  font-family: "Cinzel", serif;
-  font-size: 25px; /* Размер шрифта */
-  font-weight: bold; /* Жирность шрифта */
-  color: rgb(0, 0, 0); /* Цвет текста */
-  margin: 0 0 10px 0; /* Отступы вокруг параграфа */
+  margin: 0 0 10px 0;
 }
 
 .text-and-button button {
-  text-decoration: none;
-  background-color: #ddd0dd57;
-  display: block; /* Блочное отображение, чтобы кнопка занимала всю ширину контейнера */
-  margin-left: auto;
-  margin-right: auto; /* Автоматические отступы с обеих сторон центрируют кнопку */
+  width: auto;
+  padding: 10px 20px; /* Увеличение паддинга для лучшей кликабельности */
   color: rgb(0, 0, 0); /* Цвет текста кнопки */
   border: 2px solid #000;
   cursor: pointer; /* Курсор в виде руки при наведении */
@@ -342,20 +344,26 @@ main {
   background-color: #d1d5d6ec; /* Фон кнопки при наведении */
 }
 footer {
-  font-family: "Roboto", sans-serif;
-  font-size: 20px; /* Размер шрифта */
-  font-weight: bold; /* Жирность шрифта */
-  margin-top: 132%;
+  position: relative;
   width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
   background-color: #ddd0dd57;
   color: #000000;
   padding: 20px 0;
+  margin-top: 50px; /* Добавлен отступ сверху для явного разделения между основным содержимым и футером */
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
-  padding: 0 10%;
+  justify-content: space-around; /* Равномерное распределение элементов */
+  align-items: center; /* Центрирование элементов по вертикали */
+}
+
+.footer-section {
+  flex: 1; /* Распределение пространства между элементами */
+  text-align: center; /* Выравнивание текста по центру */
 }
 
 .footer-section h4 {
@@ -387,6 +395,7 @@ footer {
 .footer-bottom p {
   margin: 0;
 }
+
 a {
   text-decoration: none;
 }
@@ -474,6 +483,7 @@ hbagsh1 {
   justify-content: flex-end; /* Убедитесь, что контент выравнивается по нижнему краю */
   font-size: 20px;
 }
+
 .gallery-bags {
   display: flex;
   justify-content: space-between;
@@ -573,7 +583,7 @@ hbagsh1 {
   border-radius: 5px;
 }
 footer-bags {
-  position: absolute;
+  position: relative;
   font-family: "Roboto", sans-serif;
   font-size: 20px; /* Размер шрифта */
   font-weight: bold; /* Жирность шрифта */
@@ -583,4 +593,51 @@ footer-bags {
   background-color: #ddd0dd57;
   color: #000000;
   padding: 20px 0;
+  margin-top: 50px;
+}
+p {
+  font-size: 20px;
+}
+#cartContainer {
+  margin-top: 2.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центрирование элементов по горизонтали */
+  gap: 10px; /* Расстояние между элементами */
+  align-items: center;
+}
+
+.cartItem {
+  flex: 1 1 20%; /* Каждый элемент занимает 20% ширины контейнера */
+  max-width: 20%; /* Максимальная ширина элемента */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень для визуального разделения */
+  margin: 10px; /* Отступы вокруг каждого элемента */
+  text-align: center; /* Центрирование текста внутри элемента */
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#checkoutButton {
+  user-select: none;
+  text-decoration: none;
+  margin: 0 5px;
+  border: none;
+  text-align: center;
+  box-shadow: none; /* Убирает тень */
+  font-family: "Roboto", sans-serif;
+  font-size: 15px; /* Размер шрифта */
+  font-weight: bold; /* Жирность шрифта */
+  color: #000000; /* Цвет текста */
+  border-radius: 10px; /* Закругляем углы */
+  padding: 10px 20px; /* Внутренние отступы */
+  font-size: 15px; /* Размер шрифта */
+  cursor: pointer; /* Курсор в виде указателя */
+  transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+}
+/* CSS для кнопки, когда номер введен правильно */
+.button-valid {
+  border: 2px solid black;
 }

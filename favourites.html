@@ -19,24 +19,23 @@
   </head>
   <header>
     <div class="left-buttons">
-      <h1 style="font-size: 15px">ALL GENDERS</h1>
+      <h2 style="font-size: 15px; user-select: none">ALL GENDERS</h2>
     </div>
-    <h1 class="non-selectable">
+    <h class="non-selectable">
       <a href="home-page.html" style="text-decoration: none; color: inherit"
         >Anton Lebedev</a
       >
-    </h1>
+    </h>
     <div class="right-buttons">
       <button class="image-button">
-        <a href="favourites.html"
-          ><img src="images/icons8-heart-50.png" alt="whishlist"
-        /></a>
+        <a href="favourites.html">
+          <img src="images/icons8-heart-50.png" alt="whishlist" />
+        </a>
       </button>
       <button class="image-button">
-        <img src="images/icons8-account-48.png" alt="account" />
-      </button>
-      <button class="image-button">
-        <img src="images/icons8-bag-50.png" alt="bag" />
+        <a href="bag-page.html">
+          <img src="images/icons8-bag-50.png" alt="bag" />
+        </a>
       </button>
     </div>
   </header>
@@ -47,28 +46,9 @@
     <main-bags>
       <div class="product-name-bags" id="favoritesContainer"></div>
       <button onclick="clearFavorites()">CLEAR ALL</button>
+    </main-bags>
 
-      <footer-bags>
-        <div class="footer-container">
-          <div class="footer-section">
-            <h4>Контакты</h4>
-            <p>Телефон: +7 (912) 455-8329</p>
-            <p>Email: stixexile@gmail.com</p>
-          </div>
-          <div class="footer-section"></div>
-          <div class="footer-section">
-            <h4>Социальные сети</h4>
-            <a href="https://t.me/stixexile">Telegram</a>
-            <a href="https://vk.com/stixexile">VK</a>
-            <a href="https://discordapp.com/users/399517226744545280/ "
-              >Discord</a
-            >
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2024 Anton Lebedev. Все права защищены.</p>
-        </div>
-      </footer-bags>
+      
       <script>
         document.addEventListener("DOMContentLoaded", function () {
           const favoritesContainer =
