@@ -55,6 +55,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f9bd457b-4c60-4f42-b1a9-8a1fff444eb5/everyday-cushioned-training-crew-socks-6-pairs-dtmKC5.png"
             alt="accessories1 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d817a6b5-6cb6-4110-95ec-ab1695b533d0/everyday-cushioned-training-crew-socks-6-pairs-dtmKC5.png', 'Nike Everyday Cushioned', 'Выполняйте тренировки с максимальной пользой в носках Nike Everyday Cushioned Socks. Толстая махровая подошва обеспечивает дополнительный комфорт при упражнениях на ноги и подъемах, а ребристый свод стопы обхватывает среднюю часть стопы, обеспечивая поддержку.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -79,6 +80,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ab991f94-8ebf-406a-8a30-799e4c9e3a03/tour-classic-4-mens-golf-glove-left-regular-5chlNv.png"
             alt="accessories2 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f54f3c0c-b052-4938-a9c6-1ddf39edc7f3/tour-classic-4-mens-golf-glove-left-regular-5chlNv.png', 'Nike Tour Classic 4', 'Эти перчатки для гольфа для левой руки, изготовленные из мягкой кожи, обеспечивают превосходную посадку и долговечность. Эти перчатки более дышащие, с большим количеством перфораций на пальцах и тыльной стороне руки, чем предыдущие версии, и достаточно удобны для долгих дней на траве.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -103,6 +105,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/581848b1-3f6b-4fac-aa27-b88492ca3b96/icon-air-max-90-card-wallet-pM8bFq.png"
             alt="accessories3 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/418fb0b8-5653-4f80-a71a-57e1983a1ae2/icon-air-max-90-card-wallet-pM8bFq.png', 'Nike Icon Air Max 90', 'Дизайн этого кошелька был вдохновлен обувью, которая царила с 90-х годов. Кошелек имеет отделение для хранения наличных и пять отделений для карт и удостоверения личности.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -127,6 +130,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/281e9613-f4be-4af2-8aa3-cbd5a9913ae7/dri-fit-adv-rise-structured-swooshflex-cap-BXVlFc.png"
             alt="accessories4 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6604ecce-6d27-43f7-a294-5f89c6e6a5e5/dri-fit-adv-rise-structured-swooshflex-cap-BXVlFc.png', 'Nike Dri-FIT ADV Rise', 'Структурированная глубокая кепка Nike Rise Cap изготовлена ​​из улучшенной влагоотводящей ткани, которая помогает сохранять прохладу и свежесть в течение всего дня. Мы завершили его гибким AeroBill и супердышащим материалом, так что вы можете сосредоточиться на выполнении каждого повторения и достижении следующей цели.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -151,6 +155,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/2701019a-9ba5-4b38-b19e-63503418e9a1/premier-league-academy-soccer-ball-sBDX7B.png"
             alt="accessories5 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b488e4ba-ba41-47a3-abf0-1d5f6121376b/premier-league-academy-soccer-ball-sBDX7B.png', 'Premier League Academy', 'Вы никогда не перестанете совершенствовать свои навыки, поэтому используйте мяч, который работает так же усердно, как и вы. Яркие графические элементы легко увидеть на поле, пока вы тренируете работу ног, а инновационные канавки создают равномерное вращение при ударе с воздуха по воротам.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -213,7 +218,16 @@
       </h1>
       <button onclick="closePopup()">ОК</button>
     </div>
-
+    <div id="myModal" class="modal">
+      <div style="background-color: #f6f6f6" class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="Product Image" />
+        <div>
+          <h1 id="modalTitle"></h1>
+          <p id="modalDescription"></p>
+        </div>
+      </div>
+    </div>
     <script>
       function addToFavorites(name, price, image) {
         const product = { name, price, image };

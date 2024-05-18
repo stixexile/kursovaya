@@ -55,6 +55,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/dc841044-63a3-43b3-8d1a-b3d7dd4bc4f2/standard-issue-mens-dri-fit-crew-basketball-top-Kww2cz.png"
             alt="SWEATSHIRTS1 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/2fa4ff23-9895-4fb4-aefa-88434ceb9fd4/standard-issue-mens-dri-fit-crew-basketball-top-Kww2cz.png', 'Nike Standard Issue', 'Nike Basketball предлагает топ Standard Issue из коллекции, сочетающей классический внешний вид с современными характеристиками. Он выполнен из мягкой, тяжелой ткани с использованием влагоотводящей технологии, которую можно взять прямо из спортивной сумки. Носите его отдельно или в качестве дополнительного слоя, чтобы согреться.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -79,6 +80,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/18b3ec06-6250-45cb-94c3-c4f99c94a5a0/sportswear-club-fleece-mens-graphic-crew-56GFJR.png"
             alt="SWEATSHIRTS2 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/81cbe7ba-6297-4dbd-9ddc-64c11bd98e74/sportswear-club-fleece-mens-graphic-crew-56GFJR.png', 'Nike Sportswear Club Fleece', 'Базовая модель гардероба Nike Sportswear Club Fleece Crew сочетает в себе яркий логотип Futura на груди и мягкий комфорт флиса, создавая изысканный повседневный образ.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -103,6 +105,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/547b8031-c5c2-4b07-b0c4-9d4965527430/club-fleece-mens-winterized-crew-n72KLW.png"
             alt="SWEATSHIRTS3 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/9b9a62ba-8704-4bd3-8944-b081a1f7d87f/club-fleece-mens-winterized-crew-n72KLW.png', 'Nike Club Fleece', 'Перенеситесь в холодную погоду с теплом и комфортом этого пуловера из толстого флиса. Просторная посадка дает достаточно места для многослойной одежды, а боковые карманы на молнии позволяют надежно хранить ценные вещи.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -127,6 +130,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/335842de-cb91-4b43-aa39-fe0554beb417/solo-swoosh-mens-full-zip-hoodie-8bKgZZ.png"
             alt="SWEATSHIRTS4 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fe444457-9b06-4376-9be8-a1551d7e9e81/solo-swoosh-mens-full-zip-hoodie-8bKgZZ.png', 'Nike Solo Swoosh', 'Настоящая классика: толстовка Solo Swoosh с молнией во всю длину изготовлена ​​из сверхмягкого флиса, обеспечивающего гладкость и комфорт. Простота дизайна позволяет сочетать их как вверх, так и вниз для создания чистого повседневного повседневного ношения.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -151,6 +155,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c77233ba-8cb2-4c4d-a04c-30ca1d96cb41/sportswear-club-fleece-mens-full-zip-hoodie-nR8tst.png"
             alt="SWEATSHIRTS5 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/55c0de6c-e0f6-4699-9243-ae0d00d56a0e/sportswear-club-fleece-mens-full-zip-hoodie-nR8tst.png', 'Nike Sportswear Club Fleece', 'Флисовая худи Nike Sportswear Club сочетает в себе мягкую ткань и простой уличный стиль. Она достаточно универсальна для повседневного использования. Застежка-молния до подбородка станет идеальным дополнительным слоем в прохладный день.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -213,7 +218,16 @@
       </h1>
       <button onclick="closePopup()">ОК</button>
     </div>
-
+    <div id="myModal" class="modal">
+      <div style="background-color: #f2f2f2" class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="Product Image" />
+        <div>
+          <h1 id="modalTitle"></h1>
+          <p id="modalDescription"></p>
+        </div>
+      </div>
+    </div>
     <script>
       function addToFavorites(name, price, image) {
         const product = { name, price, image };

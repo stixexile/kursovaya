@@ -55,6 +55,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c13b17a9-318c-4a90-b284-6ebfcef6df9b/hayward-backpack-26l-1wD06c.png"
             alt="bag1 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7d991033-3ae6-44cc-acc2-434e5e76371a/hayward-backpack-26l-1wD06c.png', 'Nike Hayward', 'Рюкзак Nike Hayward — это новая версия старой любимой модели, в которой достаточно места для вашего снаряжения. Прочная конструкция оснащена лямками спереди для хранения куртки и боковыми карманами для бутылки с водой')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -79,6 +80,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ad261b49-01dd-42c6-98d8-64649cf76d1a/hoops-elite-basketball-backpack-32l-23p40V.png"
             alt="bag2 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/cd97b943-a177-4d64-b646-f3d1ef892421/hoops-elite-basketball-backpack-32l-23p40V.png', 'Nike Hoops Elite', 'Возьмите с собой сумку, в которую поместится все необходимое. Множество карманов сверху и по бокам помогут организовать ваши мелкие предметы первой необходимости, а в основном отделении на молнии достаточно места для всего вашего игрового снаряжения. Стабилизирующий нагрудный ремень вместе с набивкой на плечевых ремнях и задней панели обеспечивают удобство ношения этой сумки.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -103,6 +105,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c01fd199-8c1e-422e-b474-c882517db3ec/brasilia-95-training-backpack-medium-24l-zz5tL7.png"
             alt="bag3 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/71c7ae11-5a5f-4f5d-978b-f1939f41e7ec/brasilia-95-training-backpack-medium-24l-zz5tL7.png', 'Nike Brasilia 9.5', 'Берите свое снаряжение и отправляйтесь в путь с рюкзаком Nike Brasilia. Он имеет множество карманов, которые помогут вам оставаться организованными, включая карман для ноутбука, боковые сетчатые карманы для бутылок с водой и внутренний карман на молнии для хранения мелких предметов. Этот продукт изготовлен как минимум на 50 % из переработанных полиэфирных волокон.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -127,6 +130,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e78503e9-29d3-4b0e-8843-d1dc224cbee4/heritage-backpack-25l-JKmRND.png"
             alt="bag4 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/184b88cf-32b0-43de-9520-b8e281948b5d/heritage-backpack-25l-JKmRND.png', 'Nike Heritage', 'Возьмите с собой все свое снаряжение с рюкзаком Nike Heritage. В его просторном основном отделении есть отделение, вмещающее ноутбук с диагональю до 15 дюймов, поэтому ваш компьютер всегда будет под рукой. 2 кармана для аксессуаров на молнии помогут хранить ваши вещи в порядке и их легко взять с собой. Этот продукт изготовлен как минимум на 65 % из переработанного полиэстера. волокна.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -151,6 +155,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0a0cb5e5-0cb4-49af-9b0a-e3a079e06ac4/m-convertible-diaper-bag-maternity-25l-QLvDt6.png"
             alt="bag5 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e97dde12-92b1-4efb-9598-00980796caad/m-convertible-diaper-bag-maternity-25l-QLvDt6.png', 'Nike (M)', 'Семьи бывают во всех формах. Независимо от того, как выглядит ваша семья, в этом рюкзаке есть все необходимое, чтобы позаботиться о ней. Встречайте сумку для подгузников Nike (M) — двухрежимный рюкзак и сумку на плечо, предназначенную для современных родителей, которые всегда в пути. Нужна тонна организационных карманов внутри для хранения вещей? Проверять. А как насчет легко очищаемой поверхности внутри? Это тоже есть. Есть даже изолированный чехол для закусок или бутылок. Эта сумка учитывает потребности родителей: она делает ваши семейные прогулки менее напряженными, а приключения более приятными.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -213,7 +218,16 @@
       </h1>
       <button onclick="closePopup()">ОК</button>
     </div>
-
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="Product Image" />
+        <div>
+          <h1 id="modalTitle"></h1>
+          <p id="modalDescription"></p>
+        </div>
+      </div>
+    </div>
     <script>
       function addToFavorites(name, price, image) {
         const product = { name, price, image };

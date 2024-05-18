@@ -55,6 +55,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/98006c2f-5c99-4fa7-a349-a974bfd91b3d/club-mens-chino-pants-0MJtZK.png"
             alt="PANTS1 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/08428153-dd22-4393-ba44-3e519e2cb5c1/club-mens-chino-pants-0MJtZK.png', 'Nike Club Chino', 'Сохраняйте классику в этих прочных чиносах из хлопковой парусины из нашей коллекции Nike Club. Свободная посадка с прямыми штанинами обеспечивает комфорт в сидении и бедрах. Наденьте их с футболкой-поло и любимыми кроссовками Nike, чтобы создать классический образ, который можно носить где угодно.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -79,10 +80,11 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8cd2d3dd-1a00-4421-b5ab-3f83f3ff5499/club-mens-cargo-pants-RSPKSS.png"
             alt="PANTS2 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/39ba24e3-d228-4a4d-b4ff-d5504d727c5b/club-mens-cargo-pants-RSPKSS.png', 'Nike Club', 'Если ваши повседневные приключения требуют легкости и дышащего комфорта, наденьте эти хлопковые брюки-рипстоп из нашей коллекции Nike Club. В грузовых карманах достаточно места для хранения, а свободный покрой с прямыми штанинами создает ощущение непринужденности через сиденье и бедра для удобного повседневного ношения.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
-              <span class="product-name-bags">Nike Hoops Elite</span>
+              <span class="product-name-bags">Nike Club</span>
               <span class="product-price-bags">$92</span>
             </div>
             <button
@@ -103,6 +105,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/daf0aa82-1be0-4b17-baf7-b48ade1c73ac/sportswear-essentials-womens-woven-high-rise-pants-QJfbjg.png"
             alt="PANTS3 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/91a36f2d-168e-4e39-8fc2-e4f2ccf3be5f/sportswear-essentials-womens-woven-high-rise-pants-QJfbjg.png', 'Nike Sportswear Essentials', 'Эти легкие тканые брюки, готовые к жаркой жаре и (умеренным) минимумам прохладных утра и ночей, имеют непринужденную посадку, на которую вы можете рассчитывать, что ваши любимые топы и кроссовки станут яркими.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -127,6 +130,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/295a9075-b157-414a-a14c-530a07dd048a/sportswear-tech-pack-womens-high-waisted-wide-leg-ripstop-pants-bnt7pw.png"
             alt="PANTS4 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0d2ceed-2567-456d-a51f-dc2835ca19d6/sportswear-tech-pack-womens-high-waisted-wide-leg-ripstop-pants-bnt7pw.png', 'Nike Sportswear Tech Pack', 'Мягкие, но прочные, эти широкие брюки обеспечат вам комфорт и готовность ко всему на протяжении насыщенного дня. Их ткань рипстоп из смесового хлопка прочная, но при этом достаточно легкая, чтобы носить ее в теплую погоду. Открытый жаккардовый пояс высоко сидит на бедрах, обеспечивая плотную посадку и многослойный образ. И давайте не будем забывать о грузовых карманах — в них достаточно места для мелких предметов первой необходимости.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -151,6 +155,7 @@
             src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/57795960-845f-4a4a-9dd1-86ccba1af5be/sportswear-collection-womens-high-waisted-pants-hbBfmW.png"
             alt="PANTS5 Hover"
             class="hover-image"
+            onclick="showModal('https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aea47b05-b40c-405c-b5c9-34573ac10566/sportswear-collection-womens-high-waisted-pants-hbBfmW.png', 'Nike Sportswear Collection', 'Полосатые детали на талии и складки спереди создают новый взгляд на классический стиль этих брюк. Прочная ткань рипстоп сохраняет форму, а свободная посадка на ноге гарантирует, что ваши любимые кроссовки будут выглядеть эффектно. В целом, они обладают идеальной атмосферой спортивного шика, которая поможет вам провести весь день.')"
           />
           <div class="product-info-bags">
             <div class="name-and-price">
@@ -213,7 +218,16 @@
       </h1>
       <button onclick="closePopup()">ОК</button>
     </div>
-
+    <div id="myModal" class="modal">
+      <div style="background-color: #f0f0f0" class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="Product Image" />
+        <div>
+          <h1 id="modalTitle"></h1>
+          <p id="modalDescription"></p>
+        </div>
+      </div>
+    </div>
     <script>
       function addToFavorites(name, price, image) {
         const product = { name, price, image };

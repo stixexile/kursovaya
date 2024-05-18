@@ -40,3 +40,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(nextSlide, 3000); // Смена слайда каждые 3 секунды
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // Получаем элемент модального окна
+  var modal = document.getElementById("myModal");
+
+  // Получаем элемент <span>, который закрывает модальное окно
+  var span = document.getElementsByClassName("close")[0];
+
+  // Функция для открытия модального окна
+  window.showModal = function (imageSrc, title, description) {
+    document.getElementById("modalImage").src = imageSrc;
+    document.getElementById("modalTitle").textContent = title;
+    document.getElementById("modalDescription").textContent = description;
+    modal.style.display = "block";
+  };
+  var modal = document.getElementById("myModal");
+  var span = document.getElementsByClassName("close")[0];
+  // Когда пользователь кликает на <span> (x), закрываем модальное окно
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // Когда пользователь кликает в любом месте вне модального окна, он закрывается
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  // Добавляем слушатель на кнопку "Понятно"
+  document
+    .querySelector(".modal-close-btn")
+    .addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+});

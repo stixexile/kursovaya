@@ -407,7 +407,7 @@ hbags {
   margin-top: 10%;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 0;
   font-family: "Cinzel", serif;
   font-size: 25px;
   font-style: normal;
@@ -640,4 +640,71 @@ p {
 /* CSS для кнопки, когда номер введен правильно */
 .button-valid {
   border: 2px solid black;
+}
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1; /* Над всеми другими элементами */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Включение прокрутки, если нужно */
+  background-color: rgb(0, 0, 0); /* Цвет фона */
+  background-color: rgba(0, 0, 0, 0.4); /* Черный с непрозрачностью */
+  overflow: hidden; /* Убирает ненужные скроллбары */
+}
+
+.modal-content {
+  border-radius: 20px;
+  background-color: #f6f6f6;
+  margin: 10% auto; /* 10% от верха и центрировано по горизонтали */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Ширина модального окна */
+  display: flex;
+  align-items: center; /* Центрирование по вертикали */
+  justify-content: space-between;
+  position: relative;
+}
+
+.modal-content img {
+  border-radius: 20px 0 0 20px;
+  width: 50%;
+  height: auto; /* Удерживает пропорции */
+}
+
+.modal-text {
+  font-size: 50px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирование по горизонтали */
+  justify-content: center; /* Центрирование по вертикали */
+  text-align: left; /* Центрирование текста */
+}
+
+h1#modalTitle {
+  margin: 0;
+}
+
+p#modalDescription {
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  color: gray;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
